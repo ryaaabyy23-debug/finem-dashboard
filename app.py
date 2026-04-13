@@ -42,7 +42,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 tools = [
-    ("🧮", "Unit Economy", "Calculate margins, CAC, ROAS and breakeven per order", "pages/2_unit_economy.py"),
+    ("🧮", "Unit Economy", "Calculate margins, CAC, ROAS and breakeven per order", "2_unit_economy"),
     ("📈", "Daily ROAS", "Track ad performance day by day with trend analysis", None),
     ("💸", "Expenses", "Manage bills, pending payments and monthly balance", None),
     ("📋", "P&L Builder", "Build monthly profit & loss with waterfall chart", None),
@@ -63,8 +63,7 @@ for i, (icon, name, desc, page) in enumerate(tools):
             <p style="color:{TEXT_SECONDARY};font-size:13px;margin:0 0 12px 0;">{desc}</p>
         </div>
         """, unsafe_allow_html=True)
-        if page:
-            if st.button(f"Open {name}", key=f"btn_{i}"):
-                st.switch_page(page)
+        if st.button(f"Open {name}", key=f"btn_{i}"):
+    st.switch_page(f"pages/{page}.py")
         else:
             st.markdown(f'<p style="color:{TEXT_SECONDARY};font-size:12px;text-align:center;margin-bottom:16px;">Coming soon</p>', unsafe_allow_html=True)
