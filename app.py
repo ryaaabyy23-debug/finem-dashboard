@@ -63,7 +63,8 @@ for i, (icon, name, desc, page) in enumerate(tools):
             <p style="color:{TEXT_SECONDARY};font-size:13px;margin:0 0 12px 0;">{desc}</p>
         </div>
         """, unsafe_allow_html=True)
-        if st.button(f"Open {name}", key=f"btn_{i}"):
-    st.switch_page(f"pages/{page}.py")
+        if page:
+            if st.button(f"Open {name}", key=f"btn_{i}"):
+                st.switch_page(f"pages/{page}.py")
         else:
             st.markdown(f'<p style="color:{TEXT_SECONDARY};font-size:12px;text-align:center;margin-bottom:16px;">Coming soon</p>', unsafe_allow_html=True)
